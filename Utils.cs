@@ -156,10 +156,8 @@ namespace OrderConfirmationEmailToPatient
         {            
             try
             {
-                string host = ConfigurationManager.AppSettings["sendEmailHost"];
                 string emailTo = ConfigurationManager.AppSettings["emailTo"];
                 string emailFrom = ConfigurationManager.AppSettings["emailFrom"];
-                string pwd = ConfigurationManager.AppSettings["pwd"];
 
                 if (id != "0000")
                 {
