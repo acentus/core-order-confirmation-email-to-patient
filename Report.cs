@@ -38,7 +38,7 @@ namespace OrderConfirmationEmailToPatient
             }
             catch (Exception ex)
             {
-                App.writetoLog(string.Format("EXCEPTION: " + ex.Message));
+                App.Log(string.Format("EXCEPTION: " + ex.Message));
             }
         }
 
@@ -54,7 +54,7 @@ namespace OrderConfirmationEmailToPatient
 
             if (listItems != null && listItems.Rows.Count > 0)
             {
-                App.writetoLog("Records returned: " + listItems.Rows.Count.ToString());
+                App.Log("Records returned: " + listItems.Rows.Count.ToString());
 
                 int prevPatientId = 0;
                 string prevPONUmber = string.Empty;
@@ -134,12 +134,12 @@ namespace OrderConfirmationEmailToPatient
                 }
                 else
                 {
-                    App.writetoLog("Report not sent - NO DATA");
+                    App.Log("Report not sent - NO DATA");
                 }
             }
             else
             {
-                App.writetoLog("No data found for the report that matched the criteria specified");
+                App.Log("No data found for the report that matched the criteria specified");
             }
         }
 
@@ -168,7 +168,7 @@ namespace OrderConfirmationEmailToPatient
         {
             string note = "ORDER CONFIRMATION EMAIL SENT CONFIRMING PATIENT’S AUTHORIZATION TO SHIP FOR NEXT DOS OF " + serviceDate;
             db.InsertNote(id, note);
-            App.writetoLog("Contact note added successfully to : " + id + " - " + id);
+            App.Log("Contact note added successfully to : " + id + " - " + id);
         }
     }
 }

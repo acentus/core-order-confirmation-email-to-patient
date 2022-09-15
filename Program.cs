@@ -18,14 +18,14 @@ namespace OrderConfirmationEmailToPatient
         {
             try
             {
-                App.writetoLog("************************ JOB STARTED ******************************");
+                App.Log("************************ JOB STARTED ******************************");
                 Report report = new Report();
                 report.SendEmail();        
             }
             catch (Exception ex)
             {
-                App.writetoLog("EXCEPTION ******************************");
-                App.writetoLog(ex.Message);
+                App.Log("EXCEPTION ******************************");
+                App.Log(ex.Message);
             }
         }
     }

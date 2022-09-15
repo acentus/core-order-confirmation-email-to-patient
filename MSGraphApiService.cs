@@ -38,7 +38,7 @@ namespace EmailSenderService
         {
             try
             {
-                App.writetoLog("SendEmail start");                                
+                App.Log("SendEmail start");                                
                 var graphServiceClient = GetGraphClient();
                 var message = new Message
                 {
@@ -63,17 +63,17 @@ namespace EmailSenderService
             }
             catch (ServiceException ex)
             {
-                App.writetoLog(Newtonsoft.Json.JsonConvert.SerializeObject(ex));                
+                App.Log(Newtonsoft.Json.JsonConvert.SerializeObject(ex));                
             }
             catch (Exception ex)
             {
-                App.writetoLog(Newtonsoft.Json.JsonConvert.SerializeObject(ex));
+                App.Log(Newtonsoft.Json.JsonConvert.SerializeObject(ex));
             }
         }
 
         private GraphServiceClient GetGraphClient()
         {
-            App.writetoLog("GetGraphClient start");
+            App.Log("GetGraphClient start");
             var graphClient = new GraphServiceClient(new DelegateAuthenticationProvider((requestMessage) => {
                 // get an access token for Graph
                 var accessToken = GetAccessToken();
@@ -84,13 +84,13 @@ namespace EmailSenderService
 
                 return Task.FromResult(0);
             }));
-            App.writetoLog("GetGraphClient end");
+            App.Log("GetGraphClient end");
             return graphClient;
         }
 
         private async Task<string> GetAccessToken()
         {
-            App.writetoLog("GetAccessToken start");           
+            App.Log("GetAccessToken start");           
             var _httpClient = new HttpClient();
             var url = String.Format("https://login.microsoftonline.com/{0}/oauth2/v2.0/token", _appConfig.TenantId);
             

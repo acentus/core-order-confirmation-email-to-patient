@@ -37,14 +37,14 @@ namespace OrderConfirmationEmailToPatient
                 EndDate = tomorrowDate;
             }
             DateSpan = StartDate.ToShortDateString() + " - " + EndDate.ToShortDateString();
-            App.writetoLog("Start span date: " + DateSpan);
+            App.Log("Start span date: " + DateSpan);
         }
 
         public static string DateSpan { get; private set; } = string.Empty;
         public static DateTime StartDate { get; private set; }
         public static DateTime EndDate { get; private set; }
 
-        public static void writetoLog(string str)
+        public static void Log(string str)
         {
             string logfile = "";
             string filename = "OrderConfirmationEmailToPatient_Log_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".txt";
