@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// Copyright (c) 2022 by Acentus
+// Developed by: Luis Cabrera
+// gigocabrera@outlook.com
+//
+
+using System;
 using System.Collections.Generic;
 using Microsoft.Graph;
 using System.Net.Http.Headers;

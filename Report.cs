@@ -1,17 +1,11 @@
 ﻿//
-// Copyright (c) 2020 by Acentus
+// Copyright (c) 2022 by Acentus
 // Developed by: Luis Cabrera
 // gigocabrera@outlook.com
 //
 
-using EmailSenderService;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderConfirmationEmailToPatient
 {

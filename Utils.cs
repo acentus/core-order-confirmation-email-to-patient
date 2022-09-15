@@ -1,5 +1,5 @@
 ﻿//
-// Copyright (c) 2020 by Acentus
+// Copyright (c) 2022 by Acentus
 // Developed by: Luis Cabrera
 // gigocabrera@outlook.com
 //
@@ -8,8 +8,8 @@ using EmailSenderService;
 using System;
 using System.Configuration;
 using System.IO;
-using System.Net.Mail;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace OrderConfirmationEmailToPatient
 {
@@ -152,7 +152,7 @@ namespace OrderConfirmationEmailToPatient
             }
         }
 
-        public static async void SendEmailWithModernAuthentication(string id, string EmailBody, string EmailSubject, string emailPatient)
+        public static async Task SendEmailWithModernAuthentication(string id, string EmailBody, string EmailSubject, string emailPatient)
         {            
             try
             {

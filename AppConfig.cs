@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//
+// Copyright (c) 2022 by Acentus
+// Developed by: Luis Cabrera
+// gigocabrera@outlook.com
+//
 
 namespace EmailSenderService
 {
