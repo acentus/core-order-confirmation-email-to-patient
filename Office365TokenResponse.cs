@@ -4,7 +4,7 @@
 // gigocabrera@outlook.com
 //
 
-namespace EmailSenderService
+namespace CoreOrderConfirmationEmailToPatient
 {
     public class Office365TokenResponse
     {

@@ -6,7 +6,7 @@
 
 using System;
 
-namespace OrderConfirmationEmailToPatient
+namespace CoreOrderConfirmationEmailToPatient
 {
     class Program
     {
@@ -14,14 +14,14 @@ namespace OrderConfirmationEmailToPatient
         {
             try
             {
-                App.Log("************************ JOB STARTED ******************************");
+                Log.write("************************ JOB STARTED ******************************");
                 Report report = new Report();
-                report.SendEmail();        
+                report.SendEmail();
             }
             catch (Exception ex)
             {
-                App.Log("EXCEPTION ******************************");
-                App.Log(ex.Message);
+                Log.write("EXCEPTION ******************************");
+                Log.write(ex.Message);
             }
         }
     }

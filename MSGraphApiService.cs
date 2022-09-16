@@ -10,9 +10,8 @@ using Microsoft.Graph;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Net.Http;
-using OrderConfirmationEmailToPatient;
 
-namespace EmailSenderService
+namespace CoreOrderConfirmationEmailToPatient
 {
     public class MSGraphApiService
     {
@@ -44,7 +43,7 @@ namespace EmailSenderService
         {
             try
             {
-                App.Log("SendEmail start");                                
+                Log.write("SendEmail start");                                
                 var graphServiceClient = GetGraphClient();
                 var message = new Message
                 {
@@ -69,17 +68,17 @@ namespace EmailSenderService
             }
             catch (ServiceException ex)
             {
-                App.Log(Newtonsoft.Json.JsonConvert.SerializeObject(ex));                
+                Log.write(Newtonsoft.Json.JsonConvert.SerializeObject(ex));                
             }
             catch (Exception ex)
             {
-                App.Log(Newtonsoft.Json.JsonConvert.SerializeObject(ex));
+                Log.write(Newtonsoft.Json.JsonConvert.SerializeObject(ex));
             }
         }
 
         private GraphServiceClient GetGraphClient()
         {
-            App.Log("GetGraphClient start");
+            Log.write("GetGraphClient start");
             var graphClient = new GraphServiceClient(new DelegateAuthenticationProvider((requestMessage) => {
                 // get an access token for Graph
                 var accessToken = GetAccessToken();
@@ -90,13 +89,13 @@ namespace EmailSenderService
 
                 return Task.FromResult(0);
             }));
-            App.Log("GetGraphClient end");
+            Log.write("GetGraphClient end");
             return graphClient;
         }
 
         private async Task<string> GetAccessToken()
         {
-            App.Log("GetAccessToken start");           
+            Log.write("GetAccessToken start");           
             var _httpClient = new HttpClient();
             var url = String.Format("https://login.microsoftonline.com/{0}/oauth2/v2.0/token", _appConfig.TenantId);
             

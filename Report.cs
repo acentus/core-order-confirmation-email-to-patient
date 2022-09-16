@@ -6,14 +6,15 @@
 
 using System;
 using System.Data;
+using System.Threading.Tasks;
 
-namespace OrderConfirmationEmailToPatient
+namespace CoreOrderConfirmationEmailToPatient
 {
     class Report
     {
         private DataAccess db = new DataAccess();
 
-        public void SendEmail()
+        public async void SendEmail()
         {
             try
             {                
@@ -26,17 +27,17 @@ namespace OrderConfirmationEmailToPatient
 
 
                 // Populate template
-                PopulateTemplate(dt, ref htmlList);
+                await PopulateTemplate(dt, htmlList);
 
                
             }
             catch (Exception ex)
             {
-                App.Log(string.Format("EXCEPTION: " + ex.Message));
+                Log.write(string.Format("EXCEPTION: " + ex.Message));
             }
         }
 
-        private void PopulateTemplate(DataTable listItems, ref string htmlList)
+        private async Task PopulateTemplate(DataTable listItems, string htmlList)
         {
             int iTotal = 0;
             string tr = string.Empty;
@@ -48,7 +49,7 @@ namespace OrderConfirmationEmailToPatient
 
             if (listItems != null && listItems.Rows.Count > 0)
             {
-                App.Log("Records returned: " + listItems.Rows.Count.ToString());
+                Log.write("Records returned: " + listItems.Rows.Count.ToString());
 
                 int prevPatientId = 0;
                 string prevPONUmber = string.Empty;
@@ -124,16 +125,16 @@ namespace OrderConfirmationEmailToPatient
                 // only send report if there is data
                 if (iTotal > 0)
                 {
-                    Utils.SendEmailWithModernAuthentication("0000", thisHtml, "Confirmation Email to Patients Report", "");
+                    await Utils.SendEmailWithModernAuthentication("0000", thisHtml, "Confirmation Email to Patients Report", "");
                 }
                 else
                 {
-                    App.Log("Report not sent - NO DATA");
+                    Log.write("Report not sent - NO DATA");
                 }
             }
             else
             {
-                App.Log("No data found for the report that matched the criteria specified");
+                Log.write("No data found for the report that matched the criteria specified");
             }
         }
 
@@ -162,7 +163,7 @@ namespace OrderConfirmationEmailToPatient
         {
             string note = "ORDER CONFIRMATION EMAIL SENT CONFIRMING PATIENT’S AUTHORIZATION TO SHIP FOR NEXT DOS OF " + serviceDate;
             db.InsertNote(id, note);
-            App.Log("Contact note added successfully to : " + id + " - " + id);
+            Log.write("Contact note added successfully to : " + id + " - " + id);
         }
     }
 }

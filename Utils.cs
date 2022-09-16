@@ -4,14 +4,13 @@
 // gigocabrera@outlook.com
 //
 
-using EmailSenderService;
 using System;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace OrderConfirmationEmailToPatient
+namespace CoreOrderConfirmationEmailToPatient
 {
     /// <summary>
     /// This abstract class provides commonly used utility methods
@@ -144,11 +143,11 @@ namespace OrderConfirmationEmailToPatient
                 smtpClient.Credentials = new System.Net.NetworkCredential(emailFrom, pwd);
                 smtpClient.EnableSsl = true;
                 smtpClient.Send(msg);
-                App.Log("Reorder email sent successfully to : " + id + " - " + emailTo);
+                Log.write("Reorder email sent successfully to : " + id + " - " + emailTo);
             }
             catch (Exception ex)
             {
-                App.Log("EXCEPTION : " + ex.Message);
+                Log.write("EXCEPTION : " + ex.Message);
             }
         }
 
@@ -176,11 +175,11 @@ namespace OrderConfirmationEmailToPatient
                     TenantId = ConfigurationManager.AppSettings["TenantId"],                    
                 };
                 await MSGraphApiService.GetInstance(appConfig).SendEmail(EmailSubject, EmailBody, emailFrom, emailTo);
-                App.Log("Reorder email sent successfully to : " + id + " - " + emailTo);
+                Log.write("Reorder email sent successfully to : " + id + " - " + emailTo);
             }
             catch (Exception ex)
             {
-                App.Log("EXCEPTION : " + ex.Message);
+                Log.write("EXCEPTION : " + ex.Message);
             }
         }
 
