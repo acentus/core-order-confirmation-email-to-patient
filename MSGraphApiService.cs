@@ -43,7 +43,6 @@ namespace CoreOrderConfirmationEmailToPatient
         {
             try
             {
-                Log.write("SendEmail start");                                
                 var graphServiceClient = GetGraphClient();
                 var message = new Message
                 {
@@ -78,7 +77,6 @@ namespace CoreOrderConfirmationEmailToPatient
 
         private GraphServiceClient GetGraphClient()
         {
-            Log.write("GetGraphClient start");
             var graphClient = new GraphServiceClient(new DelegateAuthenticationProvider((requestMessage) => {
                 // get an access token for Graph
                 var accessToken = GetAccessToken();
@@ -89,13 +87,11 @@ namespace CoreOrderConfirmationEmailToPatient
 
                 return Task.FromResult(0);
             }));
-            Log.write("GetGraphClient end");
             return graphClient;
         }
 
         private async Task<string> GetAccessToken()
         {
-            Log.write("GetAccessToken start");           
             var _httpClient = new HttpClient();
             var url = String.Format("https://login.microsoftonline.com/{0}/oauth2/v2.0/token", _appConfig.TenantId);
             
