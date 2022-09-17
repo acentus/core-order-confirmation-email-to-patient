@@ -5,18 +5,19 @@
 //
 
 using System;
+using System.Threading.Tasks;
 
 namespace CoreOrderConfirmationEmailToPatient
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             try
             {
                 Log.write("************************ JOB STARTED ******************************");
                 Report report = new Report();
-                report.SendEmail();
+                await report.RunReport();
             }
             catch (Exception ex)
             {

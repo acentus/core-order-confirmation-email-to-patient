@@ -14,7 +14,7 @@ namespace CoreOrderConfirmationEmailToPatient
     {
         private DataAccess db = new DataAccess();
 
-        public async void SendEmail()
+        public async Task RunReport()
         {
             try
             {                
@@ -126,6 +126,7 @@ namespace CoreOrderConfirmationEmailToPatient
                 if (iTotal > 0)
                 {
                     await Utils.SendEmailWithModernAuthentication("0000", thisHtml, "Confirmation Email to Patients Report", "");
+                    Log.write("Report completed");
                 }
                 else
                 {
@@ -150,20 +151,28 @@ namespace CoreOrderConfirmationEmailToPatient
             return strTemplate;
         }
 
-        private void SendEmailToPatient(string id, string html, string serviceDate, string emailTo)
+        private async void SendEmailToPatient(string id, string html, string serviceDate, string emailTo)
         {
             DateTime d = Convert.ToDateTime(serviceDate);
             d = d.AddHours(24);
             string countdownDate = d.ToString("s");
             html = html.Replace("[COUNTDOWN_DATE]", countdownDate);
-            Utils.SendEmailWithModernAuthentication(id, html, "Acentus Order Confirmation", emailTo);
+            await Utils.SendEmailWithModernAuthentication(id, html, "Acentus Order Confirmation", emailTo);
         }
 
         private void InsertContactNoteToPatient(string id, string serviceDate)
         {
-            string note = "ORDER CONFIRMATION EMAIL SENT CONFIRMING PATIENT’S AUTHORIZATION TO SHIP FOR NEXT DOS OF " + serviceDate;
-            db.InsertNote(id, note);
-            Log.write("Contact note added successfully to : " + id + " - " + id);
+            string testMode = System.Configuration.ConfigurationManager.AppSettings["TestMode"];
+            if (testMode == "True")
+            {
+                // Do nothing. 
+            }
+            else
+            {
+                string note = "ORDER CONFIRMATION EMAIL SENT CONFIRMING PATIENT’S AUTHORIZATION TO SHIP FOR NEXT DOS OF " + serviceDate;
+                db.InsertNote(id, note);
+                Log.write("Contact note added successfully to : " + id + " - " + id);
+            }            
         }
     }
 }
