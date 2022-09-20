@@ -160,7 +160,7 @@ namespace CoreOrderConfirmationEmailToPatient
 
                 if (id != "0000")
                 {
-                    emailTo = emailPatient;
+                    emailTo = emailPatient.Trim();
                 }
 
                 string testMode = System.Configuration.ConfigurationManager.AppSettings["TestMode"];
