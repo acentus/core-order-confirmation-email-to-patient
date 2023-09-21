@@ -1,237 +1,517 @@
-﻿<!doctype html>
-<html>
-
+﻿
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
     <meta name="viewport" content="width=device-width">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
     <title>Patient Reorder Notification</title>
+
+    <!--[if mso]>
+        <style>
+            * { font-family:arial,sans-serif !important; }
+        </style>
+    <![endif]-->
+
     <style>
-            /* -------------------------------------
-            INLINED WITH htmlemail.io/inline
-        ------------------------------------- */
-            /* -------------------------------------
-            RESPONSIVE AND MOBILE FRIENDLY STYLES
-        ------------------------------------- */
-            @media only screen and (max-width: 620px) {
-                table[class=body] h1 {
-                    font-size: 28px !important;
-                    margin-bottom: 10px !important;
-                }
 
-                table[class=body] p,
-                table[class=body] ul,
-                table[class=body] ol,
-                table[class=body] td,
-                table[class=body] span,
-                table[class=body] a {
-                }
+        /* Resets and framework : START */
 
-                table[class=body] .wrapper,
-                table[class=body] .article {
-                    padding: 10px !important;
-                }
+        html, body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
 
-                table[class=body] .content {
-                    padding: 0 !important;
-                }
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
 
-                table[class=body] .container {
-                    padding: 0 !important;
-                    width: 100% !important;
-                }
+        div[style*="margin:16px 0"] {
+            margin: 0 !important;
+        }
 
-                table[class=body] .main {
-                    border-left-width: 0 !important;
-                    border-radius: 0 !important;
-                    border-right-width: 0 !important;
-                }
+        #MessageViewBody, #MessageWebViewDiv {
+            width: 100% !important;
+        }
 
-                table[class=body] .btn table {
-                    width: 100% !important;
-                }
+        table, td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
 
-                table[class=body] .btn a {
-                    width: 100% !important;
-                }
+        th {
+            font-weight: normal;
+        }
 
-                table[class=body] .img-responsive {
-                    height: auto !important;
-                    max-width: 100% !important;
-                    width: auto !important;
-                }
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a[x-apple-data-detectors], .unstyle-auto-detected-links a, .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .im {
+            color: inherit !important;
+        }
+
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        img.g-img + div {
+            display: none !important;
+        }
+
+
+        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+        @media only screen and (min-device-width:320px) and (max-device-width:374px) {
+            u ~ div .email-container {
+                min-width: 320px !important;
+            }
+        }
+
+        /* iPhone 6, 6S, 7, 8, and X */
+        @media only screen and (min-device-width:375px) and (max-device-width:413px) {
+            u ~ div .email-container {
+                min-width: 375px !important;
+            }
+        }
+
+        /* iPhone 6+, 7+, and 8+ */
+        @media only screen and (min-device-width:414px) and (max-device-width:736px) {
+            u ~ div .email-container {
+                min-width: 414px !important;
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .email-container {
+                width: 100% !important;
+                margin: auto !important;
             }
 
-            /* -------------------------------------
-            PRESERVE THESE STYLES IN THE HEAD
-        ------------------------------------- */
-            @media all {
-                .ExternalClass {
-                    width: 100%;
-                }
-
-                    .ExternalClass,
-                    .ExternalClass p,
-                    .ExternalClass span,
-                    .ExternalClass font,
-                    .ExternalClass td,
-                    .ExternalClass div {
-                        line-height: 100%;
-                    }
-
-                .apple-link a {
-                    color: inherit !important;
-                    font-family: inherit !important;
-                    font-size: inherit !important;
-                    font-weight: inherit !important;
-                    line-height: inherit !important;
-                    text-decoration: none !important;
-                }
-
-                #MessageViewBody a {
-                    color: inherit;
-                    text-decoration: none;
-                    font-size: inherit;
-                    font-family: inherit;
-                    font-weight: inherit;
-                    line-height: inherit;
-                }
-
-                .btn-primary table td:hover {
-                    background-color: #34495e !important;
-                }
-
-                .btn-primary a:hover {
-                    background-color: #34495e !important;
-                    border-color: #34495e !important;
-                }
+            .stack-column, .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
             }
+
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+        }
+
+        /* Resets and framework : END */
+
+
+        /* All mobile */
+        @media only screen and (min-device-width:320px) and (max-device-width:736px) {
+            .container-v-spacer {
+                display: none !important;
+            }
+
+            .container-gutters {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .header-logo, .header-title {
+                padding-left: 30px !important;
+            }
+
+            .header-wave-white {
+                background-color: #ffffff !important;
+            }
+
+            .header-wave-blue {
+                background-color: #1e79a9 !important;
+            }
+
+            .cta-button {
+                width: 100% !important;
+            }
+
+            .std-two-column-col2 {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .long-form-list-rule {
+                background-color: #cccccc !important;
+            }
+
+            .long-form-list-gutter-right {
+                display: none !important;
+            }
+
+            .resources {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .resources-icon {
+                padding-top: 20px !important;
+                padding-bottom: 0 !important;
+            }
+
+                .resources-icon img {
+                    margin: 0 auto !important;
+                }
+
+            .resources-name {
+                padding-top: 0 !important;
+                padding-bottom: 30px !important;
+                text-align: center !important;
+            }
+
+            .resources-long-description {
+                padding: 18px 25px 30px 25px !important;
+                text-align: center !important;
+            }
+
+            .resources-short-description {
+                padding: 18px 25px 10px 25px !important;
+                text-align: center !important;
+            }
+
+            .list-bullet-cell {
+                width: 20px !important;
+            }
+
+            .container-alternating-table {
+                background-color: #ffffff !important;
+            }
+
+            .alternating-table {
+                margin: 40px 0 40px 0 !important;
+            }
+
+            .alternating-table-col1 {
+                padding: 10px 10px 10px 25px !important;
+                font-size: 14px !important;
+                line-height: 18px !important;
+                width: 100px !important;
+            }
+
+            .alternating-table-col2 {
+                padding: 10px 25px 10px 10px !important;
+                font-size: 14px !important;
+                line-height: 18px !important;
+                width: auto !important;
+            }
+
+            .alternating-table2-col1 {
+                padding: 10px 10px 10px 25px !important;
+                font-size: 14px !important;
+                line-height: 18px !important;
+                width: 34% !important;
+            }
+
+            .alternating-table2-col2 {
+                padding: 10px !important;
+                font-size: 14px !important;
+                line-height: 18px !important;
+                width: 33% !important;
+            }
+
+            .alternating-table2-col3 {
+                padding: 10px 25px 10px 10px !important;
+                font-size: 14px !important;
+                line-height: 18px !important;
+                width: 33% !important;
+            }
+
+            .three-card-margin, .two-card-margin {
+                display: none !important;
+            }
+
+            .card-three-card, .card-two-card {
+                width: 100% !important;
+            }
+
+                .card-three-card td.row2 {
+                    padding-left: 25px !important;
+                    padding-right: 25px !important;
+                }
+
+                .card-two-card td.row2 {
+                    padding-left: 25px !important;
+                    padding-right: 25px !important;
+                }
+
+            .container-v-spacer.imageWithHeadlineSpacer {
+                display: block !important;
+                height: 20px;
+                background-color: #ffffff !important;
+            }
+        }
+
+        /* Module-specific : END */
+
     </style>
+
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
 </head>
 
-<body class=""
-      style="background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 15px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
-    <table border="0" cellpadding="0" cellspacing="0" class="body"
-           style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;">
+<!-- Preview Text: START -->
+<div style="display:none; font-size:1px; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; mso-hide:all; font-family:sans-serif;">
+    Acentus365.com reorder confirmation
+</div>
+<!-- Preview Text: END -->
+
+<center style="width:100%; background-color:#cccccc;">
+
+    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin:auto;" class="email-container">
+
+
+        <!-- Header Module : START -->
         <tr>
-            <td style="font-family: sans-serif; font-size: 15px; vertical-align: top;">&nbsp;</td>
-            <td class="container"
-                style="font-family: sans-serif; font-size: 15px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;">
-                <div class="content"
-                     style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
-
-                    <!-- START CENTERED WHITE CONTAINER -->
-                    <table class="main"
-                           style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;">
-
-                        <!-- START MAIN CONTENT AREA -->
-                        <tr>
-                            <td class="wrapper"
-                                style="font-family: sans-serif; font-size: 15px; vertical-align: top; box-sizing: border-box; padding: 20px;">
-                                <table border="0" cellpadding="0" cellspacing="0"
-                                       style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #ffffff;">
-                                    <tr>
-                                        <td style="font-family: sans-serif; font-size: 15px; vertical-align: top;">
-
-                                            <p style="margin-bottom: 35px;">
-                                                <a href="https://www.acentus365.com" title="Acentus365">
-                                                    <img alt="Acentus365" border="0" src="https://acentus365.com/images/logo/logo.png" />
-                                                </a>
-                                            </p>
-
-                                            <p style="font-size:18px; font-weight: bold; margin:35px 0px 35px 0px;">
-                                                Thank you for confirming your supply order with Acentus today.
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
-                                                Hello [PATIENT_NAME],
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
-                                                The supply order you confirmed with Acentus on [ADDED_DATE] is
-                                                <span style="color: red; text-decoration: underline">scheduled to ship on [SERVICE_DATE]</span>
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
-                                                We will send you a follow-up email with tracking information once your order ships. Tracking information
-                                                is generally available within 24 hours after the supply order is shipped.
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
-                                                Your <strong>Acentus</strong> Service Team is available to answer any questions you may have Monday through Friday
-                                                from 9 am - 5 pm ET at <strong>866-684-2507</strong> or <a href="mailto:Service@Acentus365.com">Service@Acentus365.com</a>.
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin: 0; Margin-bottom: 5px; margin-top: 35px; color: red;">
-                                                <strong>Text Messages Coming your way...</strong>
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin: 0; Margin-bottom: 15px; color: red;">
-                                                Please add <strong>813-578-0301</strong> to your contacts so you’ll recognize important text messages from Acentus.
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin-top: 35px; Margin-bottom: 15px;">
-                                                Thank you for entrusting <strong>Acentus</strong> with your supply needs.
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin-top: 35px; Margin-bottom: 15px;">
-                                                The <strong>Acentus</strong> client services team.
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin-top: 35px; Margin-bottom: 15px;">
-                                                Need to make a payment? <a href="https://obp.payspanhealth.com/acentus365">https://obp.payspanhealth.com/acentus365</a>
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin-top: 15px; Margin-bottom: 15px;">
-                                                &nbsp;
-                                            </p>
-
-                                            <p style="font-family: sans-serif; font-size: 15px; font-weight: normal; margin-top: 15px; Margin-bottom: 15px; background-color: #4a2f8f; padding: 10px; color: #ffffff;">
-                                                <a style="color: #ffffff; text-decoration: none;" href="https://www.comfortplusonline.com/acentus-comfort-plus-partnership/?utm_source=Acentus&utm_medium=Referral&utm_campaign=Email">Need to purchase quality medical supplies? Click Here for home delivery.</a>
-                                            </p>
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <!-- END MAIN CONTENT AREA -->
-                    </table>
-
-                    <!-- START FOOTER -->
-                    <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
-                        <table border="0" cellpadding="0" cellspacing="0"
-                               style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
-                            <tr>
-                                <td class="content-block"
-                                    style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #000; text-align: center;">
-                                    <span class="apple-link" style="font-size: 12px; text-align: center;">
-                                        Acentus. 4951-B E. Adamo Drive, Suite 220, Tampa, FL 33605-5913
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td bgcolor="#f4f4f4" align="center"
-                                    style="padding: 20px 30px 30px 30px; color: #999999; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 400; line-height: 18px;">
-                                    <br>
-                                    <p style="margin: 0;">
-                                        <a href="https://aboutluiscabrera.com" target="_blank"
-                                           style="color: #b5b5b5; font-weight: 400; text-decoration: none;">
-                                            Developed by Luis
-                                            Cabrera LLC
-                                        </a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- END FOOTER -->
-                    <!-- END CENTERED WHITE CONTAINER -->
-                </div>
+            <td class="header-logo" width="100%" style="padding: 17px 0 40px 55px; background-color: #4A2F8F; ">
+                <a target="_blank" href="https://acentus365.com"><img src="https://acentus365.com/images/logo/acentus_logo_white.png" alt="Acentus365.com" border="0"></a>
             </td>
-            <td style="font-family: sans-serif; font-size: 15px; vertical-align: top;">&nbsp;</td>
         </tr>
-    </table>
-</body>
+        <tr>
+            <td style="background-color: #4A2F8F; ">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td class="header-title" style="padding:0 55px 25px 55px;">
+                            <h1 style="margin: 0 0 1px 0; font-family: arial,sans-serif; font-size: 30px; mso-line-height-rule: exactly; line-height: 36px; color: #fff;">
+                                Thank you for confirming your supply order with Acentus today.
+                            </h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="header-wave-white" style="background-color:#f4f4f4"><img class="g-img" src="https://acentus365.com/images/email/email_template_banner.png" alt="" border="0" style="display:block; width:100%; height:auto;"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- Header Module : END -->
+        <!-- Body Module : START -->
+        <tr>
+            <td aria-hidden="true" class="container-v-spacer" height="34" style="display:block; font-size:0px; line-height:0px; background-color:#f4f4f4;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="container-gutters" style="background-color:#f4f4f4; padding:0 30px 0 30px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td style="padding:37px 25px 0px 25px; font-family:arial,sans-serif; font-size:16px; mso-line-height-rule:exactly; line-height:24px; color:#17232e; background-color:#ffffff;">
+                            <p style="margin:0 0 16px 0;">
+                                Hello [PATIENT_NAME],
+                            </p>
+                            <p style="margin:25px 0 0 0;">
+                                The supply order you confirmed with Acentus on <strong>[ADDED_DATE]</strong> is scheduled to ship on <strong>[SERVICE_DATE]</strong>
+                            </p>
+                            <p style="margin:25px 0 0 0;">
+                                We will send you a follow-up email with tracking information once your order ships. Tracking information
+                                is generally available within 24 hours after the supply order is shipped.
+                            </p>
+                            <p style="margin:25px 0 0 0;">
+                                Your <strong>Acentus</strong> Service Team is available to answer any questions you may have Monday through Friday
+                                from 9 am - 5 pm ET at <strong>866-684-2507</strong> or <a href="mailto:Service@Acentus365.com">Service@Acentus365.com</a>.
+                            </p>
+                            <p style="margin:25px 0 25px 0;">
+                                Thank you for entrusting <strong>Acentus</strong> with your supply needs.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- Body Module : END -->
+        <!-- Alert Module : START -->
+        <tr>
+            <td aria-hidden="true" class="container-v-spacer" height="40" style="display:block; font-size:0px; line-height:0px; background-color:#f4f4f4;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="container-gutters" style="background-color:#f4f4f4; padding:0 30px 0 30px;">
+                <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f7dfdf">
+                    <tr>
+                        <td aria-hidden="true" width="18" valign="top" style="padding:40px 10px 0 25px;"><img src="https://acentus365.com/images/email/exclamation_mark.png" width="18" height="19" alt="" style="display:block;"></td>
+                        <td valign="top" style="padding:38px 25px 37px 0; font-family:arial,sans-serif; font-size:16px; color:#17232e; mso-line-height-rule:exactly; line-height:24px;">
+                            <h2 style="margin-top:0; font-size:18px; mso-line-height-rule:exactly; line-height:22px;">
+                                My sensor isn't working or fell off. What do I do?
+                            </h2>
+                            <p style="margin:0 0 16px 0;">
+                                We understand sensor issues occur. For damaged or non-working sensors,
+                                each CGM manufacturer has a replacement process to help improve their products.
+                                Follow these easy steps to get a replacement.
+                            </p>
+                            <p style="margin:0 0 0 0;">
+                                Follow these easy steps to get a replacement:
+                            </p>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-check greencolor" aria-hidden="true"></i>
+                                    Do <strong>NOT</strong> throw away your damaged or non-working sensor
+                                </li>
+                                <li>
+                                    <i class="fa fa-check greencolor" aria-hidden="true"></i>
+                                    <strong>Freestyle Libre CGM users:</strong><br>
+                                    Contact Abbott Customer service at <strong>855-632-8658</strong>, or
+                                    <a href="https://www.freestyle.abbott/us-en/support/sensor-support-form-questions.html" target="_blank">CLICK HERE</a> for Abbott's online replacement form.
+                                </li>
+                                <li>
+                                    <i class="fa fa-check greencolor" aria-hidden="true"></i>
+                                    <strong>Dexcom G7 CGM users:</strong><br>
+                                    Contact Abbott Customer service at <strong>888-738-3646</strong>, or
+                                    <a href="https://dexcom.custhelp.com/app/webform" target="_blank">CLICK HERE</a> for Dexcom's online replacement form.
+                                </li>
+                                <li>
+                                    <i class="fa fa-check greencolor" aria-hidden="true"></i>
+                                    Ask for expedited delivery and REFUSE a pharmacy coupon as it will require a new RX from your doctor.
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- Alert Module : END -->
+        <!-- Survey Module : START -->
+        <!-- Survey Module - Ratings : START -->
+        <!--<tr>
+            <td aria-hidden="true" class="container-v-spacer" height="34" style="display:block; font-size:0px; line-height:0px; background-color:#f4f4f4;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="container-gutters" style="background-color:#f4f4f4; padding:0 30px 0 30px;">
+                <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td aria-hidden="true" height="3" style="font-size:0px; line-height:0px; background-color:#227aa7;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td align="center" style="padding:32px 0 25px 0; font-family:arial,sans-serif; font-size:16px; mso-line-height-rule:exactly; line-height:24px; color:#17232e; background-color:#ffffff;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="270">
+                                <tr>
+                                    <td align="center" style="padding-bottom:14px; font-family:arial,sans-serif; font-size:20px; color:#17232e; mso-line-height-rule:exactly; line-height:24px;"><strong>How helpful was this email?</strong></td>
+                                </tr>
+                            </table>
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td width="15"></td>
+                                    <td width="40"><a target="_blank" href=""><img src="https://acentus365.com/images/email/rating_1.png" height="40" width="40" border="0" alt="1" style="display:block;"></a></td>
+                                    <td width="10"></td>
+                                    <td width="40"><a target="_blank" href=""><img src="https://acentus365.com/images/email/rating_2.png" height="40" width="40" border="0" alt="2" style="display:block;"></a></td>
+                                    <td width="10"></td>
+                                    <td width="40"><a target="_blank" href=""><img src="https://acentus365.com/images/email/rating_3.png" height="40" width="40" border="0" alt="3" style="display:block;"></a></td>
+                                    <td width="10"></td>
+                                    <td width="40"><a target="_blank" href=""><img src="https://acentus365.com/images/email/rating_4.png" height="40" width="40" border="0" alt="4" style="display:block;"></a></td>
+                                    <td width="10"></td>
+                                    <td width="40"><a target="_blank" href=""><img src="https://acentus365.com/images/email/rating_5.png" height="40" width="40" border="0" alt="5" style="display:block;"></a></td>
+                                    <td width="15"></td>
+                                </tr>
+                            </table>
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="270">
+                                <tr>
+                                    <td width="70" align="center" style="padding-top:12px; font-family:arial,sans-serif; font-size:13px; color:#17232e; mso-line-height-rule:exactly; line-height:15px;">Very<br>unhelpful</td>
+                                    <td width="130">&nbsp;</td>
+                                    <td width="70" align="center" style="padding-top:12px;  font-family:arial,sans-serif; font-size:13px; color:#17232e; mso-line-height-rule:exactly; line-height:15px;">Very<br>helpful</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>-->
+        <!-- Survey Survey Module - Ratings : END -->
+        <!-- Survey Module : END -->
 
+        <!-- Footer Module : START -->
+        <!-- Footer Module : START -->
+        <tr>
+            <td aria-hidden="true" class="container-v-spacer" height="40" style="display:block; font-size:0px; line-height:0px; background-color:#f4f4f4;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#17232e" style="padding:53px 0 40px 0;">
+                <table role="presentation" width="280" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="center" style="padding:13px 0 26px 0; font-family:arial,sans-serif; font-size:14px; color:#ffffff; mso-line-height-rule:exactly; line-height:18px;">
+                            <p style="margin:0;">
+                                This email was sent by: Acentus365.com<br />
+                                4951-B E. Adamo Drive<br />
+                                Suite 220<br />
+                                Tampa, FL 33605-5913<br />
+                                866-684-2507
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td aria-hidden="true" height="5" style="font-size:0px; line-height:0px; background-color:#80c342;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding-top:26px; font-family:arial,sans-serif; font-size:12px; color:#ffffff; mso-line-height-rule:exactly; line-height:18px;">
+                            <p style="margin:0;">
+                                Please do not reply to this email. Messages sent to this email address are not monitored. If you wish to contact us, please use the 
+                                <a target="_blank" href="https://acentus365.com/contact-us" style="color:#ffffff; text-decoration:underline;">Contact Us </a> page.<br />
+                                For more information about Acentus,<br />
+                                please visit <a target="_blank" href="https://acentus365.com" style="color:#ffffff; text-decoration:underline;">our website</a>.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- Footer Module : END -->
+        <!-- Footer Module : END -->
+
+
+    </table>
+
+    <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+
+</center>
+</body>
 </html>
+<img height='0' width='0' alt='' src='https://track.mail.studentaid.gov/r/?id=h8ac8ac6f,7c00752,1' />

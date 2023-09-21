@@ -160,7 +160,7 @@ namespace CoreOrderConfirmationEmailToPatient
             await Utils.SendEmailWithModernAuthentication(id, html, "Acentus Order Confirmation", emailTo);
         }
 
-        private void InsertContactNoteToPatient(string id, string serviceDate)
+        private void InsertContactNoteToPatient(string id, string serviceDate, string html)
         {
             string testMode = System.Configuration.ConfigurationManager.AppSettings["TestMode"];
             if (testMode == "True")
@@ -170,7 +170,7 @@ namespace CoreOrderConfirmationEmailToPatient
             else
             {
                 string note = "ORDER CONFIRMATION EMAIL SENT CONFIRMING PATIENT’S AUTHORIZATION TO SHIP FOR NEXT DOS OF " + serviceDate;
-                db.InsertNote(id, note);
+                db.InsertNote(id, note, html);
                 Log.write("Contact note added successfully to : " + id + " - " + id);
             }            
         }

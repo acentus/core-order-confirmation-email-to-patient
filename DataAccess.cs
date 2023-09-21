@@ -67,19 +67,20 @@ namespace CoreOrderConfirmationEmailToPatient
             return GetDataTable(sb.ToString());
         }
 
-        public void InsertNote(string id, string note)
+        public void InsertNote(string id, string note, string html)
         {
             using (SqlConnection sql = new SqlConnection(conn))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("INSERT INTO AR4CONTACTS (ENTITYTYPE, ENTITYID, CONTACTTYPE, NOTE, ADDUSERID, ADDDATE) ");
-                sb.Append("VALUES('PATIENT', @id, 'APATIENT',  @note, 'SYSTEM', GetDate()); ");
+                sb.Append("INSERT INTO AR4CONTACTS (ENTITYTYPE, ENTITYID, CONTACTTYPE, NOTE, ADDUSERID, ADDDATE, MESSAGE) ");
+                sb.Append("VALUES('PATIENT', @id, 'APATIENT',  @note, 'SYSTEM', GetDate(), @message); ");
 
                 using (SqlCommand cmd = new SqlCommand(sb.ToString(), sql))
                 {
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.Parameters.Add(new SqlParameter("@id", id));
                     cmd.Parameters.Add(new SqlParameter("@note", note));
+                    cmd.Parameters.Add(new SqlParameter("@message", html));
                     sql.Open();
                     cmd.ExecuteNonQuery();
                 }
