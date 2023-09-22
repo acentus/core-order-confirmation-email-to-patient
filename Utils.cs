@@ -172,7 +172,7 @@ namespace CoreOrderConfirmationEmailToPatient
                 {
                     AppId = ConfigurationManager.AppSettings["AppId"],
                     AppSecret = ConfigurationManager.AppSettings["AppSecret"],
-                    TenantId = ConfigurationManager.AppSettings["TenantId"],                    
+                    TenantId = ConfigurationManager.AppSettings["TenantId"],
                 };
                 await MSGraphApiService.GetInstance(appConfig).SendEmail(EmailSubject, EmailBody, emailFrom, emailTo);
                 Log.write("Reorder email sent successfully to : " + id + " - " + emailTo);
