@@ -153,10 +153,6 @@ namespace CoreOrderConfirmationEmailToPatient
 
         private async void SendEmailToPatient(string id, string html, string serviceDate, string emailTo)
         {
-            DateTime d = Convert.ToDateTime(serviceDate);
-            d = d.AddHours(24);
-            string countdownDate = d.ToString("s");
-            html = html.Replace("[COUNTDOWN_DATE]", countdownDate);
             await Utils.SendEmailWithModernAuthentication(id, html, "Acentus Order Confirmation", emailTo);
         }
 
