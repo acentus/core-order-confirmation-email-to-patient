@@ -91,7 +91,7 @@ namespace CoreOrderConfirmationEmailToPatient
                         {
                             // Send confirmation email to customer
                             SendEmailToPatient(thisPatientId.ToString(), emailTemplateHtml, thisServiceDate.ToShortDateString(), thisEmail);
-                            InsertContactNoteToPatient(thisPatientId.ToString(), strServiceDates);
+                            InsertContactNoteToPatient(thisPatientId.ToString(), strServiceDates, emailTemplateHtml);
                         }
                         catch
                         {
