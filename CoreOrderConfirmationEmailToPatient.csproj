@@ -1,28 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
-	<Version>1.6</Version>
-	<AssemblyVersion>1.6</AssemblyVersion>
-	<FileVersion>1.6</FileVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<Version>1.6</Version>
+		<AssemblyVersion>1.6</AssemblyVersion>
+		<FileVersion>1.6</FileVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Graph" Version="4.37.0" />
-    <PackageReference Include="Microsoft.Graph.Core" Version="2.0.12" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Azure.Identity" Version="1.12.0" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Graph" Version="5.56.0" />
+		<PackageReference Include="Microsoft.Graph.Core" Version="3.1.12" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="HtmlTemplates\EmailList.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="HtmlTemplates\EmailTemplate.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<!-- Include the HtmlTemplates folder and its contents in the build output -->
+	<ItemGroup>
+		<Content Include="HtmlTemplates\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
 </Project>

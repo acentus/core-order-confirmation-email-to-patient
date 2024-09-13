@@ -5,6 +5,7 @@
 //
 
 using System;
+using System.Configuration;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -12,12 +13,25 @@ namespace CoreOrderConfirmationEmailToPatient
 {
     class Report
     {
+        JobCenterHistoryLogger logHeader = new JobCenterHistoryLogger();
+        JobCenterHistoryLoggerDetails logDetails = new JobCenterHistoryLoggerDetails();
+
         private DataAccess db = new DataAccess();
 
         public async Task RunReport()
         {
             try
-            {                
+            {
+                //
+                // START LOGGING
+                //
+                logHeader = new JobCenterHistoryLogger(DateTime.Now, DateTime.Now, JobCenterHistoryLogger.StatusEnum.Running, "Report started");
+                logDetails = new JobCenterHistoryLoggerDetails(logHeader.HistoryId, "Test Mode: " + ConfigurationManager.AppSettings["TestMode"]);
+                logDetails = new JobCenterHistoryLoggerDetails(logHeader.HistoryId, "Subject: " + ConfigurationManager.AppSettings["subject"]);
+                logDetails = new JobCenterHistoryLoggerDetails(logHeader.HistoryId, "Email From: " + ConfigurationManager.AppSettings["emailFrom"]);
+                logDetails = new JobCenterHistoryLoggerDetails(logHeader.HistoryId, "Email To: " + ConfigurationManager.AppSettings["emailTo"]);
+                logDetails = new JobCenterHistoryLoggerDetails(logHeader.HistoryId, "Report Date: " + DateTime.Today.ToShortDateString());
+
                 // Get HTML template for report
                 string htmlPatient = Utils.GetTemplate("EmailTemplate.html");
                 string htmlList = Utils.GetTemplate("EmailList.html");
@@ -29,11 +43,22 @@ namespace CoreOrderConfirmationEmailToPatient
                 // Populate template
                 await PopulateTemplate(dt, htmlList);
 
-               
+                logDetails = new JobCenterHistoryLoggerDetails(logHeader.HistoryId, "Email: Sent Successfully");
+
+                logHeader.EndTime = DateTime.Now;
+                logHeader.Message = "Report Completed";
+                logHeader.Status = JobCenterHistoryLogger.StatusEnum.Success;
+                logHeader.Update();
             }
             catch (Exception ex)
             {
-                Log.write(string.Format("EXCEPTION: " + ex.Message));
+                Log.write(string.Format("REPORT EXCEPTION: " + ex.Message));
+
+                logHeader.EndTime = DateTime.Now;
+                logHeader.Status = JobCenterHistoryLogger.StatusEnum.Error;
+                logHeader.Message = ex.Message;
+                logHeader.Update();
+                throw;
             }
         }
 
