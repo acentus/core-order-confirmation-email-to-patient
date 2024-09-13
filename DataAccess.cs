@@ -60,7 +60,7 @@ namespace CoreOrderConfirmationEmailToPatient
             sb.Append("AND WO.BILLTYPE = 'P' ");
             sb.Append("AND WO.CONFIRM = 'Y' ");
             sb.Append("AND DATEDIFF(day, WO.SVCDATE, WO.CMNEXPIRE) > 0 ");
-            sb.Append("AND WO.ITEMID NOT IN(726,1950)");
+            sb.Append("AND WO.ITEMID IN(720,1658,1960,1955,1964,1965)");
             sb.Append("AND WO.ENTRYDATE BETWEEN '").Append(App.StartDate).Append("' AND '").Append(App.EndDate).Append("' ");
             sb.Append("GROUP BY WO.PATIENTID, PAT.FIRSTNAME, PAT.LASTNAME, WO.INVOICENO, CONVERT(date, WO.ENTRYDATE), WO.SVCDATE, PAT.EMAIL ");
             sb.Append("ORDER BY WO.PATIENTID, WO.SVCDATE DESC; ");
